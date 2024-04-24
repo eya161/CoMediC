@@ -1,19 +1,20 @@
+# Use the official Node.js 18 image as a parent image
 FROM node:18
 
-# Change the working directory on the Docker image to /app
-WORKDIR /Comedic Node
+# Set the working directory in the container
+WORKDIR /MediColGes_Backend
 
-# Copy package.json and package-lock.json to the /app directory
-COPY package.json package-lock.json ./
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of project files into this image
+# Copy all files from the current directory to the working directory in the container
 COPY . .
 
-# Expose application port
+# Expose port 5000 to the outside world
 EXPOSE 5000
 
-# Start the application
-CMD node server.js
+# Command to run the application
+CMD ["node", "server.js"]
