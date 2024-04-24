@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "cross-env NODE_ENV='test' mocha --timeout 20000 --exit",
+    "build-dev": "webpack --config webpack.dev.js --mode development"
   },
   "keywords": [],
   "author": "",
