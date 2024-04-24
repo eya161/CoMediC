@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules mocha --timeout 20000 --exit",
-    "build-dev": "webpack --config webpack.dev.js --mode development"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules mocha --timeout 20000 --exit"
   },
   "keywords": [],
   "author": "",
