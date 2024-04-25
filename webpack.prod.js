@@ -1,31 +1,12 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    main: './server.js'
-  },
+  mode: 'development', // or 'development'
+  entry: './server.js',
+  target: 'node', // Specify the target environment as Node.js
   output: {
-    path: path.join(__dirname, 'dev_build'),
-    publicPath: '/',
-    filename: '[name].js',
-    clean: true
+    path: path.resolve(__dirname, 'dist'), // Output directory
+    filename: 'bundle.js', // Output bundle file name
   },
-  mode: 'development',
-  target: 'node',
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ]
-          }
-        }
-      }
-    ]
-  }
+  // Other webpack configuration options
 };
