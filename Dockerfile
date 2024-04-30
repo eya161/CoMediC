@@ -1,20 +1,20 @@
-# Use the official Node.js 18 image as a parent image
-FROM node:18
+# Use the official Node.js image with tag 16-alpine as the base image
+FROM node:16-alpine
 
-# Set the working directory in the container
-WORKDIR /MediColGes_Backend
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Copy the contents of the current directory into the container at /app
+COPY . /app
 
 # Install dependencies
 RUN npm install
 
-# Copy all files from the current directory to the working directory in the container
-COPY . .
+# Build the application
+RUN npm run build-dev
 
 # Expose port 5000 to the outside world
 EXPOSE 5000
 
 # Command to run the application
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
