@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: 192.168.7.3:8083/Comedic:1.0
+    restart: always
+    container_name: back
+    ports:
+      - '5000:5000'
