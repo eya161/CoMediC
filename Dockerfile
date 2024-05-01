@@ -11,7 +11,7 @@ COPY . /app
 RUN npm install
 
 # Build the application
-RUN npm run build-dev
+RUN npm run build
 
 # Expose port 5000 to the outside world
 EXPOSE 5000
